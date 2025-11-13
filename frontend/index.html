@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab 11 Dashboard</title>
+  </head>
+  <body>
+    <h1>Lab 11 CI/CD + Monitoring</h1>
+    <p id="status"></p>
+    <script>
+      fetch("/api/status")
+        .then((res) => res.json())
+        .then((data) => {
+          document.getElementById("status").innerText = data.message;
+        })
+        .catch(() => {
+          document.getElementById("status").innerText = "Backend not reachable";
+        });
+    </script>
+  </body>
+</html>
